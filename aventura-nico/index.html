@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Último turno — Aventura de Nico</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <div><h1>Último turno</h1><p>Una aventura de Nico en el supermercado</p></div>
+    <div class="header-actions">
+      <button id="restart-top" type="button" hidden>Reiniciar</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="scene" id="scene" aria-label="Nico en el supermercado">
+      <img class="scene-background" src="media/pasillo.png" alt="Pasillo del supermercado donde Nico debe encontrar la salida">
+      <div class="scene-shade"></div>
+      <div class="scene-label" id="scene-location">SUPERMERCADO · 05:12 AM</div>
+      <img class="character" id="nico" src="media/nico.svg" alt="Nico, ilustración original extraída de su archivo de Animate">
+      <p class="scene-caption" id="scene-caption">Nico todavía está adentro.</p>
+    </section>
+
+    <section class="status" aria-label="Estado de Nico">
+      <div class="meter"><label for="time-fill">Tiempo <strong id="time-value">100%</strong></label><progress id="time-fill" max="100" value="100"></progress></div>
+      <div class="meter"><label for="energy-fill">Energía <strong id="energy-value">100%</strong></label><progress id="energy-fill" max="100" value="100"></progress></div>
+    </section>
+
+    <section class="inventory"><strong>Inventario:</strong>
+      <ul id="inventory-list">
+        <li data-item="key">Llave: <b>No</b></li>
+        <li data-item="lever">Palanca: <b>No</b></li>
+        <li data-item="snack">Snack: <b>No</b></li>
+        <li data-item="screwdriver">Destornillador: <b>No</b></li>
+      </ul>
+    </section>
+
+    <section class="story" id="game-card" aria-live="polite">
+      <div class="intro-copy" id="intro-copy">
+        <p class="eyebrow">6 ETAPAS · 3 FINALES</p>
+        <h2>El local cerró y Nico quedó adentro.</h2>
+        <p class="description">La salida principal está cerrada. Ayudalo a encontrar otra antes de que vuelva el guardia a las seis.</p>
+        <button class="primary-button" id="start-game" type="button">Empezar</button>
+      </div>
+      <div class="stage-copy" id="stage-copy" hidden>
+        <div class="stage-heading"><p class="eyebrow" id="stage-eyebrow"></p><span id="step-count"></span></div>
+        <h2 id="stage-title"></h2>
+        <p class="description" id="stage-description"></p>
+        <p class="feedback" id="feedback" hidden></p>
+        <div class="choices" id="choices"></div>
+        <div class="final-card" id="final-card" hidden></div>
+      </div>
+    </section>
+
+    <details class="decisions">
+      <summary>Ver decisiones anteriores</summary>
+      <ol id="trail"><li class="trail-empty">Todavía no hay decisiones.</li></ol>
+    </details>
+  </main>
+  <footer>Proyecto Integrador 2026 · Sprint 3 · HTML, CSS y JavaScript</footer>
+</body>
+</html>
