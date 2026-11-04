@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Último turno — La aventura de Nico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/datos.js" defer></script>
+  <script src="js/juego.js" defer></script>
+</head>
+<body>
+  <header class="barra-superior">
+    <h1>Último turno</h1>
+    <div class="acciones">
+      <button id="btn-ayuda" class="btn-chico" type="button">Cómo jugar</button>
+      <button id="btn-reiniciar" class="btn-chico" type="button" hidden>Reiniciar</button>
+    </div>
+  </header>
+
+  <!-- PANTALLA DE INICIO -->
+  <main id="pantalla-inicio" class="pantalla-inicio">
+    <div class="portada">
+      <img class="portada-fondo" src="media/fondos/pasillo_apagado.jpg" alt="">
+      <img class="portada-nico" src="media/personajes/nico.svg" alt="Nico">
+      <div class="portada-texto">
+        <p class="etiqueta">Aventura gráfica · 6 etapas · 3 finales</p>
+        <h2>El supermercado cerró y Nico quedó adentro.</h2>
+        <p>Se quedó en el baño y cuando salió estaba todo apagado. La puerta principal tiene candado y a las <b>6:00</b> llega el guardia. Ayudalo a encontrar otra salida.</p>
+        <button id="btn-empezar" class="btn-principal" type="button">Empezar ▶</button>
+      </div>
+    </div>
+    <p class="creditos">Equipo: Correa · Bauti · Álvaro · Matías — Proyecto Integrador 2026</p>
+  </main>
+
+  <!-- PANTALLA DE JUEGO -->
+  <main id="pantalla-juego" class="pantalla-juego" hidden>
+    <section id="escena" class="escena" aria-label="Escena actual">
+      <div class="escena-fondo"></div>
+      <div class="escena-tinte"></div>
+      <img id="nico" class="nico" src="media/personajes/nico.svg" alt="Nico">
+      <p class="escena-lugar"><span id="lugar"></span> · <span id="hora">05:12</span> AM</p>
+    </section>
+
+    <aside class="hud" aria-label="Estado de Nico">
+      <div class="indicador" id="ind-tiempo">
+        <div class="ind-titulo"><span>⏱ Tiempo</span><strong id="valor-tiempo">100%</strong></div>
+        <div class="barra" role="progressbar" aria-label="Tiempo" aria-valuemin="0" aria-valuemax="100"><div id="barra-tiempo" class="relleno tiempo"></div></div>
+      </div>
+      <div class="indicador" id="ind-energia">
+        <div class="ind-titulo"><span>⚡ Energía</span><strong id="valor-energia">100%</strong></div>
+        <div class="barra" role="progressbar" aria-label="Energía" aria-valuemin="0" aria-valuemax="100"><div id="barra-energia" class="relleno energia"></div></div>
+      </div>
+      <h3>Inventario</h3>
+      <ul id="inventario" class="inventario"></ul>
+    </aside>
+
+    <section class="historia">
+      <div class="cabecera-etapa">
+        <span id="etapa"></span>
+        <div id="progreso-etapas" class="progreso-etapas"></div>
+      </div>
+
+      <div id="panel-historia" class="panel" aria-live="polite">
+        <h2 id="titulo-nodo"></h2>
+        <p id="texto-nodo" class="texto-nodo"></p>
+        <p id="aviso" class="aviso" hidden></p>
+        <div id="opciones" class="opciones"></div>
+        <p class="tip">Tip: también podés elegir con las teclas 1, 2 y 3.</p>
+      </div>
+
+      <div id="panel-final" class="panel panel-final" hidden>
+        <p id="final-etiqueta" class="etiqueta"></p>
+        <h2 id="final-titulo"></h2>
+        <p id="final-texto"></p>
+        <p id="final-datos" class="final-datos"></p>
+        <button id="btn-otra-vez" class="btn-principal" type="button">Volver a jugar ↻</button>
+      </div>
+
+      <details class="recorrido">
+        <summary>Decisiones tomadas</summary>
+        <ol id="recorrido"></ol>
+      </details>
+    </section>
+  </main>
+
+  <!-- CINEMÁTICA: animación de Nico exportada de Adobe Animate -->
+  <div id="cinematica" class="cinematica" hidden>
+    <video id="video-nico" preload="auto" playsinline muted>
+      <source src="media/animaciones/nico-reaccion.mp4" type="video/mp4">
+    </video>
+    <p class="cinematica-texto">Nico sale del baño… y se apagan las luces.</p>
+    <button id="btn-saltar" class="btn-chico" type="button">Saltar ⏭</button>
+  </div>
+
+  <!-- AYUDA -->
+  <dialog id="ayuda" class="ayuda">
+    <h2>Cómo jugar</h2>
+    <ul>
+      <li>En cada etapa elegís una de <b>3 opciones</b>. Son 6 etapas en total.</li>
+      <li><b>⏱ Tiempo</b>: cada acción gasta tiempo. Si llega a 0 son las 6:00 y el guardia te encuentra.</li>
+      <li><b>⚡ Energía</b>: las acciones físicas cansan. Si llega a 0, Nico se desmaya.</li>
+      <li>Los <b>objetos</b> que encontrás cambian las opciones y lo que cuestan. Pasá el mouse por el inventario para ver para qué sirve cada uno.</li>
+      <li>Hay <b>3 finales</b> según cómo cruces la verja en la última etapa: corriendo, trabándola o cortando el motor. Si se te acaba el tiempo o la energía, quedás <b>atrapado</b>.</li>
+    </ul>
+    <button id="btn-cerrar-ayuda" class="btn-principal" type="button">Entendido</button>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Exportá la animación desde Adobe Animate y guardala en esta carpeta con el nombre exacto:
+
+nico-reaccion.mp4
+
+Después podés borrar este archivo de texto.
