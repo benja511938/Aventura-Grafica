@@ -1,0 +1,611 @@
+[
+  {
+    "id": "P01",
+    "nombre": "Final 1 · esprintar (oficina → llave)",
+    "pasos": "A A A C A A",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir a la oficina del gerente",
+      "OFICINA DEL GERENTE: Forzar el cajón metálico",
+      "DEPÓSITO CENTRAL: Tirar una lata al otro extremo",
+      "CAJA DE HERRAMIENTAS: Revisar la caja de llaves",
+      "PUERTA TRASERA: Probar la llave de salida",
+      "DECISIÓN FINAL: Esprintar y pasar por debajo",
+      "Final: Escape al límite"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "Final 1 · Escape al límite",
+      "tiempo": "55%",
+      "energia": "65%",
+      "llave": "Sí",
+      "fondo": "exterior_amanecer.svg",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "Final 1 · Escape al límite",
+      "tiempo": "55%",
+      "energia": "65%",
+      "llave": "Sí",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 0,
+      "fondo": "exterior_amanecer.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P02",
+    "nombre": "Final 2 · trabar la verja CON palanca",
+    "pasos": "A A A A A B",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir a la oficina del gerente",
+      "OFICINA DEL GERENTE: Forzar el cajón metálico",
+      "DEPÓSITO CENTRAL: Tirar una lata al otro extremo",
+      "CAJA DE HERRAMIENTAS: Llevar la palanca de hierro",
+      "PUERTA TRASERA: Probar la llave de salida",
+      "DECISIÓN FINAL: Trabar la verja",
+      "Final: La herramienta salvadora"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "Final 2 · La herramienta salvadora",
+      "tiempo": "50%",
+      "energia": "70%",
+      "palanca": "Sí",
+      "llave": "Sí",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "Final 2 · La herramienta salvadora",
+      "tiempo": "50%",
+      "energia": "70%",
+      "llave": "Sí",
+      "palanca": "Sí",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 0,
+      "fondo": "exterior_amanecer.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P03",
+    "nombre": "Final 2 · trabar la verja SIN palanca",
+    "pasos": "B A A B B B",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Empujar las cajas",
+      "DEPÓSITO CENTRAL: Tirar una lata al otro extremo",
+      "CAJA DE HERRAMIENTAS: Seguir sin herramientas",
+      "PUERTA TRASERA: Forzar la cerradura",
+      "DECISIÓN FINAL: Trabar la verja",
+      "Final: A pura fuerza"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "Final 2 · A pura fuerza",
+      "tiempo": "50%",
+      "energia": "25%",
+      "palanca": "No",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "Final 2 · A pura fuerza",
+      "tiempo": "50%",
+      "energia": "25%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 0,
+      "fondo": "exterior_amanecer.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P04",
+    "nombre": "Final 3 · panel de control (conducto → destornillador)",
+    "pasos": "C A B B C C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Meterse en el conducto de ventilación",
+      "CONDUCTOS DE VENTILACIÓN: Salir por la primera rejilla",
+      "FIAMBRERÍA Y HELADERAS: Revisar los delantales",
+      "CAJA DE HERRAMIENTAS: Seguir sin herramientas",
+      "PUERTA TRASERA: Desarmar la cerradura con calma",
+      "DECISIÓN FINAL: Buscar el panel de control",
+      "Final: Salida silenciosa"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "Final 3 · Salida silenciosa",
+      "tiempo": "37%",
+      "energia": "60%",
+      "destornillador": "Sí",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "Final 3 · Salida silenciosa",
+      "tiempo": "37%",
+      "energia": "60%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "Sí",
+      "botones": 0,
+      "fondo": "exterior_amanecer.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P05",
+    "nombre": "Derrota por tiempo",
+    "pasos": "A C A C A A B",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir a la oficina del gerente",
+      "OFICINA DEL GERENTE: Encender la computadora",
+      "FIAMBRERÍA Y HELADERAS: Comer algo de la heladera del personal",
+      "CAJA DE HERRAMIENTAS: Revisar la caja de llaves",
+      "PUERTA TRASERA: Probar la llave de salida (sin éxito)",
+      "PUERTA TRASERA: Forzar la cerradura",
+      "DECISIÓN FINAL: Trabar la verja",
+      "Final: Atrapado"
+    ],
+    "azar": 0.9,
+    "esperado": {
+      "final": "Final · Atrapado",
+      "tiempo": "0%",
+      "fondo": "pasillo.png",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "Final · Atrapado",
+      "tiempo": "0%",
+      "energia": "40%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "Consumido",
+      "destornillador": "No",
+      "botones": 0,
+      "fondo": "pasillo.png",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P06",
+    "nombre": "Derrota por energía",
+    "pasos": "C C B A B A",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Meterse en el conducto de ventilación",
+      "CONDUCTOS DE VENTILACIÓN: Patear una rejilla trabada",
+      "DEPÓSITO CENTRAL: Avanzar agachado y en silencio",
+      "CAJA DE HERRAMIENTAS: Llevar la palanca de hierro",
+      "PUERTA TRASERA: Forzar la cerradura",
+      "DECISIÓN FINAL: Esprintar y pasar por debajo",
+      "Final: Atrapado"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "Final · Atrapado",
+      "energia": "0%",
+      "fondo": "pasillo.png",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "Final · Atrapado",
+      "tiempo": "55%",
+      "energia": "0%",
+      "llave": "No",
+      "palanca": "Sí",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 0,
+      "fondo": "pasillo.png",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P07",
+    "nombre": "Snack de la oficina: queda \"Consumido\" y la energía no pasa de 100%",
+    "pasos": "A B",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir a la oficina del gerente",
+      "OFICINA DEL GERENTE: Revisar el uniforme colgado"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "(sin final)",
+      "snack": "Consumido",
+      "energia": "100%",
+      "tiempo": "80%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "80%",
+      "energia": "100%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "Consumido",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "deposito_central.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P08",
+    "nombre": "Snack de la fiambrería: queda \"Consumido\"",
+    "pasos": "C A A",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Meterse en el conducto de ventilación",
+      "CONDUCTOS DE VENTILACIÓN: Salir por la primera rejilla",
+      "FIAMBRERÍA Y HELADERAS: Comer algo de la heladera del personal"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "(sin final)",
+      "snack": "Consumido",
+      "energia": "95%",
+      "tiempo": "60%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "60%",
+      "energia": "95%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "Consumido",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "taller.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P09",
+    "nombre": "Caja de llaves sin llave, azar favorable → consigue la llave",
+    "pasos": "B B C C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Rodear por la fiambrería",
+      "FIAMBRERÍA Y HELADERAS: Bordear las cámaras de frío",
+      "CAJA DE HERRAMIENTAS: Revisar la caja de llaves"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "llave": "Sí",
+      "tiempo": "55%",
+      "energia": "75%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "55%",
+      "energia": "75%",
+      "llave": "Sí",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "puerta_trasera.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P10",
+    "nombre": "Caja de llaves sin llave, azar desfavorable → sigue sin llave",
+    "pasos": "B B C C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Rodear por la fiambrería",
+      "FIAMBRERÍA Y HELADERAS: Bordear las cámaras de frío",
+      "CAJA DE HERRAMIENTAS: Revisar la caja de llaves"
+    ],
+    "azar": 0.9,
+    "esperado": {
+      "llave": "No",
+      "tiempo": "55%",
+      "energia": "75%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "55%",
+      "energia": "75%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "puerta_trasera.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P11",
+    "nombre": "Caja de llaves con llave previa → no descuenta nada",
+    "pasos": "A A A C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir a la oficina del gerente",
+      "OFICINA DEL GERENTE: Forzar el cajón metálico",
+      "DEPÓSITO CENTRAL: Tirar una lata al otro extremo",
+      "CAJA DE HERRAMIENTAS: Revisar la caja de llaves"
+    ],
+    "azar": 0.9,
+    "esperado": {
+      "llave": "Sí",
+      "tiempo": "65%",
+      "energia": "85%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "65%",
+      "energia": "85%",
+      "llave": "Sí",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "puerta_trasera.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P12",
+    "nombre": "Puerta trasera sin llave → no abre y quedan 2 opciones",
+    "pasos": "B A A B A",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Empujar las cajas",
+      "DEPÓSITO CENTRAL: Tirar una lata al otro extremo",
+      "CAJA DE HERRAMIENTAS: Seguir sin herramientas",
+      "PUERTA TRASERA: Probar la llave de salida (sin éxito)"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "final": "(sin final)",
+      "tiempo": "50%",
+      "energia": "60%",
+      "llave": "No",
+      "botones": 2,
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "50%",
+      "energia": "60%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 2,
+      "fondo": "puerta_trasera.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P13",
+    "nombre": "Destornillador reduce el costo de la cerradura (−8 / −5)",
+    "pasos": "C A B B C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Meterse en el conducto de ventilación",
+      "CONDUCTOS DE VENTILACIÓN: Salir por la primera rejilla",
+      "FIAMBRERÍA Y HELADERAS: Revisar los delantales",
+      "CAJA DE HERRAMIENTAS: Seguir sin herramientas",
+      "PUERTA TRASERA: Desarmar la cerradura con calma"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "tiempo": "52%",
+      "energia": "65%",
+      "destornillador": "Sí",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "52%",
+      "energia": "65%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "Sí",
+      "botones": 3,
+      "fondo": "patio_carga.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P14",
+    "nombre": "Sin destornillador, la cerradura cuesta más (−20 / −10)",
+    "pasos": "B A A B C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Empujar las cajas",
+      "DEPÓSITO CENTRAL: Tirar una lata al otro extremo",
+      "CAJA DE HERRAMIENTAS: Seguir sin herramientas",
+      "PUERTA TRASERA: Desarmar la cerradura con calma"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "tiempo": "50%",
+      "energia": "60%",
+      "destornillador": "No",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "50%",
+      "energia": "60%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "patio_carga.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P15",
+    "nombre": "Trepar el estante, azar desfavorable → −5 de energía extra",
+    "pasos": "B C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Trepar por el estante caído"
+    ],
+    "azar": 0.9,
+    "esperado": {
+      "tiempo": "80%",
+      "energia": "75%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "80%",
+      "energia": "75%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "deposito_central.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P16",
+    "nombre": "Trepar el estante, azar favorable → sin energía extra",
+    "pasos": "B C",
+    "recorrido": [
+      "SALIDA DEL BAÑO: Ir al pasillo del depósito",
+      "PASILLO DEL DEPÓSITO: Trepar por el estante caído"
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "tiempo": "80%",
+      "energia": "80%",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "80%",
+      "energia": "80%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "deposito_central.svg",
+      "intro": false,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P17",
+    "nombre": "Reiniciar tras un final → vuelve a la portada y limpia el inventario",
+    "pasos": "A A A C A A R",
+    "recorrido": [
+      "Tus elecciones aparecerán acá."
+    ],
+    "azar": 0.1,
+    "esperado": {
+      "intro": true,
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "tiempo": "100%",
+      "energia": "100%",
+      "fondo": "pasillo.png",
+      "errores": 0
+    },
+    "obtenido": {
+      "final": "(sin final)",
+      "tiempo": "100%",
+      "energia": "100%",
+      "llave": "No",
+      "palanca": "No",
+      "snack": "No",
+      "destornillador": "No",
+      "botones": 3,
+      "fondo": "pasillo.png",
+      "intro": true,
+      "errores": 0
+    },
+    "ok": true,
+    "fallos": []
+  },
+  {
+    "id": "P18",
+    "nombre": "Animación de Animate: se reproduce al empezar y luego se oculta",
+    "pasos": "Empezar",
+    "recorrido": [
+      "Presionar \"Empezar\" y esperar 5 s"
+    ],
+    "azar": 0,
+    "esperado": {
+      "Video visible a 1,2 s": "sí",
+      "Nico oculto durante el video": "sí",
+      "Video visible a 5 s": "no",
+      "Opciones de la etapa 1": "3"
+    },
+    "obtenido": {
+      "Video visible a 1,2 s": "sí",
+      "Nico oculto durante el video": "sí",
+      "Video visible a 5 s": "no",
+      "Opciones de la etapa 1": "3"
+    },
+    "ok": true,
+    "fallos": []
+  }
+]

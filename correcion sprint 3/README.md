@@ -8,17 +8,19 @@ Proyecto Integrador 2026 — **Sprint 3**. Aventura web de seis etapas con rutas
 2. Abrir `index.html` en un navegador actualizado (o usar Live Server desde VS Code).
 3. Presionar **Empezar** y probar distintos recorridos. No requiere librerías externas.
 
-## Archivos
+## Estructura del repositorio
 
-- `index.html`: estructura y textos de la WebApp.
-- `styles.css`: interfaz adaptable, efectos y variantes visuales provisionales por zona.
-- `game.js`: seis etapas, rutas, decisiones, variables, inventario y finales.
-- `media/pasillo.png`: fondo de la etapa 1 (salida del baño) y de la pantalla de derrota.
-- `media/escenarios/*.svg`: un fondo propio para cada lugar del recorrido (ver tabla más abajo).
-- `media/escenarios/_fuente/`: código Python que genera los SVG (`python3 scenes.py`), para poder retocarlos.
-- `media/nico.svg`: personaje utilizado en la WebApp.
-- `CONTRIBUCIONES.md`: registro de aportes individuales a completar con nombres y evidencias reales.
+Un único proyecto, ubicado en la raíz del repositorio. Las mejoras se agregan encima con cada commit.
 
+```
+index.html, styles.css, game.js     WebApp (HTML + CSS + JavaScript, sin librerías)
+media/                              pasillo.png, nico.svg, escenarios/*.svg (+ _fuente/) y animacion/ (video de Animate + .fla)
+docs/FINALES.md                     descripción de los finales según el juego actual
+docs/REGISTRO-DE-PRUEBAS.md         pruebas realizadas, resultados, errores y correcciones
+docs/RECURSOS-Y-ANIMACION.md        origen de recursos, uso de IA, coherencia visual y animación de Animate
+tests/run-tests.js                  pruebas automatizadas (node tests/run-tests.js)
+CONTRIBUCIONES.md                   participación del equipo y tablero
+```
 
 ## Correcciones aplicadas a partir de la devolución
 
@@ -26,6 +28,9 @@ Proyecto Integrador 2026 — **Sprint 3**. Aventura web de seis etapas con rutas
 - El destornillador obtenido en fiambrería reduce el costo de tiempo y energía al desmontar la cerradura del Nodo 5.
 - Si Nico ya tiene la llave, revisar de nuevo la caja de llaves no descuenta tiempo ni energía.
 - Se eliminaron el enlace incorrecto al archivo editable FLA y la etiqueta de Sprint 1.
+- El snack, una vez comido, figura como **Consumido** en el inventario.
+- El Final 2 se llama "La herramienta salvadora" solo si Nico tiene la palanca; sin ella es "A pura fuerza".
+- Repositorio reordenado: un único proyecto en la raíz (antes había una carpeta registrada como puntero roto y no se veían los archivos).
 - Se reemplazaron las variaciones de color sobre un único pasillo por **fondos propios para cada lugar**. El fondo cambia automáticamente cuando Nico cambia de habitación (propiedad `bg` de cada nodo en `game.js`).
 
 ## Fondos por escenario
@@ -46,14 +51,19 @@ Proyecto Integrador 2026 — **Sprint 3**. Aventura web de seis etapas con rutas
 
 Criterio visual: perspectiva de un punto de fuga, contorno de tinta oscuro, colores planos con trama de lápiz y la paleta de `pasillo.png` (rojo, verde azulado, cartón, azul y amarillo). El punto de fuga queda a la izquierda para que Nico, que aparece a la derecha, no tape los objetos importantes de cada escena.
 
-## Origen de los recursos gráficos (completar con el equipo)
+## Recursos, uso de IA y animación
 
-- `media/pasillo.png`: **completar** herramienta/origen y qué retoques hizo el equipo.
-- `media/nico.svg`: **completar** (exportado desde el archivo de Animate del equipo).
-- `media/escenarios/*.svg`: generados con ayuda de un asistente de IA (Claude, de Anthropic) mediante código que dibuja los SVG (ver `_fuente/`). El equipo debe registrar acá qué revisó, ajustó o rehízo sobre esos fondos antes de la entrega final.
+Ver `docs/RECURSOS-Y-ANIMACION.md`. Resumen: los fondos `media/escenarios/*.svg` se generaron con ayuda de un asistente de IA (Claude, de Anthropic) mediante código (`_fuente/`); el origen de `pasillo.png` y `nico.svg` y el trabajo de edición del equipo están por completar en ese documento.
+
+## Animación de Nico
+
+Al presionar "Empezar" se reproduce `media/animacion/nico_intro.mp4` (4 s, exportada desde Adobe Animate) sobre la etapa 1; un clic la saltea. Detalles en `docs/RECURSOS-Y-ANIMACION.md`.
+
+## Pruebas
+
+Ver `docs/REGISTRO-DE-PRUEBAS.md`. Las pruebas automatizadas se ejecutan con `node tests/run-tests.js` (requiere Playwright).
 
 ## Pendiente
 
-- Unificar el estilo final de personaje, escenarios e interfaz según el apartado artístico y los mockups del Sprint 2 (la interfaz todavía usa una línea visual distinta).
-- Exportar la animación hecha en Animate e integrarla en un momento concreto del juego.
-- Registro de pruebas del Sprint 3 y registro real de participación del equipo.
+- Completar el registro de pruebas manuales y el registro real de participación del equipo (`CONTRIBUCIONES.md`).
+- Unificar el estilo de personaje, escenarios e interfaz con el apartado artístico del Sprint 2, o justificar los cambios.

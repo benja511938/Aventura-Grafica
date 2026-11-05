@@ -26,7 +26,7 @@ const nodes = {
     location: 'ÁREA ADMINISTRATIVA', bg: 'media/escenarios/oficina.svg', bgAlt: 'Oficina del gerente: escritorio con computadora, fichero metálico, reloj de pared y un saco colgado', caption: 'Un reloj de pared hace tic… tac… tic…',
     choices: [
       { title: 'Forzar el cajón metálico', detail: 'Buscar las llaves de la sucursal.', cost: '−15 tiempo · −5 energía · llave', time: 15, energy: 5, effect: s => { s.inventory.key = true; }, result: 'Encontrás la llave de salida entre unos papeles. La guardás.', next: '3A' },
-      { title: 'Revisar el uniforme colgado', detail: 'El saco del gerente podría tener algo útil.', cost: '−10 tiempo · +10 energía · snack', time: 10, energy: -10, effect: s => { s.inventory.snack = true; }, result: 'Encontrás una barra de cereal y la comés. Recuperás energía.', next: '3A' },
+      { title: 'Revisar el uniforme colgado', detail: 'El saco del gerente podría tener algo útil.', cost: '−10 tiempo · +10 energía · snack', time: 10, energy: -10, effect: s => { s.inventory.snack = 'consumed'; }, result: 'Encontrás una barra de cereal y la comés. Recuperás energía.', next: '3A' },
       { title: 'Encender la computadora', detail: 'Probar la apertura remota de la entrada.', cost: '−25 tiempo', time: 25, energy: 0, result: 'La computadora no abre ninguna puerta. Una alarma silenciosa empieza a correr.', next: '3B' },
     ],
   },
@@ -65,7 +65,7 @@ const nodes = {
     description: 'La fiambrería está helada y las luces titilan. Cerca de las cámaras de frío hay un pequeño sector para empleados.',
     location: 'FIAMBRERÍA · CÁMARAS DE FRÍO', bg: 'media/escenarios/fiambreria.svg', bgAlt: 'Fiambrería helada con vitrinas refrigeradas, la cámara de frío y el sector de empleados', caption: 'Las luces vuelven a parpadear.', flicker: true,
     choices: [
-      { title: 'Comer algo de la heladera del personal', detail: 'Detenerse un momento para recuperar fuerzas.', cost: '−15 tiempo · +20 energía · snack', time: 15, energy: -20, effect: s => { s.inventory.snack = true; }, result: 'Comés un sándwich y recuperás energía. El envase te queda de recuerdo.', next: 4 },
+      { title: 'Comer algo de la heladera del personal', detail: 'Detenerse un momento para recuperar fuerzas.', cost: '−15 tiempo · +20 energía · snack', time: 15, energy: -20, effect: s => { s.inventory.snack = 'consumed'; }, result: 'Comés un sándwich y recuperás energía.', next: 4 },
       { title: 'Revisar los delantales', detail: 'Buscar algo útil en el perchero del personal.', cost: '−10 tiempo · −5 energía · destornillador', time: 10, energy: 5, effect: s => { s.inventory.screwdriver = true; }, result: 'Encontrás un destornillador y te lo guardás.', next: 4 },
       { title: 'Bordear las cámaras de frío', detail: 'Pasar de largo sin detenerte.', cost: '−5 tiempo · −10 energía', time: 5, energy: 10, next: 4 },
     ],
@@ -129,8 +129,37 @@ $('start-game').addEventListener('click', () => {
   stageCopy.hidden = false;
   $('restart-top').hidden = false;
   renderNode();
+  playIntroClip();
 });
 $('restart-top').addEventListener('click', resetGame);
+
+// Animación de Nico exportada desde Adobe Animate (2 a 5 s). Se reproduce al empezar, sobre el pasillo de la etapa 1.
+// Si el archivo todavía no existe o el navegador no puede reproducirlo, el juego sigue normal sin ella.
+const INTRO_CLIPS = ['media/animacion/nico_intro.mp4', 'media/animacion/nico_intro.webm']; // MP4 (Animate) y WebM de respaldo
+let introIndex = 0;
+const introClip = $('intro-clip');
+function stopIntroClip() {
+  introClip.pause();
+  introClip.hidden = true;
+  introClip.removeAttribute('src');
+  introClip.load();
+  character.style.visibility = '';
+}
+function tryNextClip() {
+  if (introIndex >= INTRO_CLIPS.length) return stopIntroClip();
+  introClip.src = INTRO_CLIPS[introIndex++];
+  introClip.play().catch(tryNextClip);
+}
+function playIntroClip() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  introIndex = 0;
+  introClip.onended = stopIntroClip;
+  introClip.onerror = tryNextClip; // si el navegador no puede con el MP4, prueba el WebM
+  introClip.onclick = stopIntroClip; // un clic la saltea
+  introClip.hidden = false;
+  character.style.visibility = 'hidden';
+  tryNextClip();
+}
 
 function valueOf(value) { return typeof value === 'function' ? value(state) : value; }
 function setFeedback(text) {
@@ -248,8 +277,9 @@ function updateSidebar() {
   for (const [key, yes] of Object.entries(state.inventory)) {
     const row = document.querySelector(`[data-item="${key}"]`);
     if (row) {
-      row.classList.toggle('has-item', yes);
-      row.querySelector('b').textContent = yes ? 'Sí' : 'No';
+      row.classList.toggle('has-item', yes === true);
+      row.classList.toggle('is-used', yes === 'consumed');
+      row.querySelector('b').textContent = yes === 'consumed' ? 'Consumido' : yes ? 'Sí' : 'No';
     }
   }
   const trail = $('trail');
@@ -268,13 +298,13 @@ function updateSidebar() {
 }
 function endGame(type, message) {
   state.ending = { type, message };
-  state.trail.push({ stage: 'Final', choice: type === 'loss' ? 'Atrapado' : type === 'sprint' ? 'Escape al límite' : type === 'lever' ? 'La herramienta salvadora' : 'Salida silenciosa' });
+  state.trail.push({ stage: 'Final', choice: type === 'loss' ? 'Atrapado' : type === 'sprint' ? 'Escape al límite' : type === 'lever' ? (state.inventory.lever ? 'La herramienta salvadora' : 'A pura fuerza') : 'Salida silenciosa' });
   updateSidebar();
   renderEnding();
 }
 function renderEnding() {
   const lost = state.ending.type === 'loss';
-  const endingTitles = { sprint: 'Final 1 · Escape al límite', lever: 'Final 2 · La herramienta salvadora', panel: 'Final 3 · Salida silenciosa' };
+  const endingTitles = { sprint: 'Final 1 · Escape al límite', lever: state.inventory.lever ? 'Final 2 · La herramienta salvadora' : 'Final 2 · A pura fuerza', panel: 'Final 3 · Salida silenciosa' };
   const title = lost ? 'Final · Atrapado' : endingTitles[state.ending.type] || 'Final · Escape';
   choicesEl.hidden = true;
   finalCard.hidden = false;
@@ -296,6 +326,7 @@ function renderEnding() {
   character.classList.toggle('is-surprised', lost);
 }
 function resetGame() {
+  stopIntroClip();
   state = newGame();
   $('intro-copy').hidden = false;
   stageCopy.hidden = true;
