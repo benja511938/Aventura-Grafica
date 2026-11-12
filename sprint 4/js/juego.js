@@ -34,6 +34,7 @@ function elegir(indice) {
   const nodo = NODOS[estado.nodo];
   const opcion = opcionesVisibles()[indice];
   if (!opcion || estado.final) return;
+    if (opcion.necesitaEnergia && estado.energia < opcion.necesitaEnergia) return;
 
   const antes = { tiempo: estado.tiempo, energia: estado.energia };
   const resultado = valor(opcion.resultado) || '';
@@ -152,6 +153,10 @@ function renderNodo(mensaje = '') {
     btn.querySelector('strong').textContent = op.titulo;
     btn.querySelector('small').textContent = valor(op.detalle);
     btn.querySelector('.costo').textContent = textoCosto(op);
+    if (op.necesitaEnergia && estado.energia < op.necesitaEnergia) {
+      btn.disabled = true;
+      btn.querySelector('small').textContent = `Te falta energía: necesitás ${op.necesitaEnergia}%`;
+    }
     btn.addEventListener('click', () => elegir(i));
     lista.append(btn);
   });

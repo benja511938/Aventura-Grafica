@@ -161,4 +161,5 @@ button { font: inherit; cursor: pointer; }
   .costo { width: 100%; padding-left: 42px; }
   .nico { left: 52%; }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }  
+.opcion:disabled { opacity: .45 !important; filter: grayscale(1); cursor: not-allowed; }
