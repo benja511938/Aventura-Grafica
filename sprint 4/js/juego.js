@@ -10,7 +10,7 @@ function estadoInicial() {
     energia: 100,
     inventario: { llave: false, palanca: false, snack: false, destornillador: false },
     nodo: 1,
-    puertaAbiertaCon: null,   // 'llave' o 'fuerza'
+       puertaAbiertaCon: null,   // 'llave', 'fuerza' o 'precision'
     fallaLlave: false,        // true si probó la llave sin tenerla
     recorrido: [],            // lista de decisiones tomadas
     final: null,
