@@ -22,52 +22,50 @@ Hechas por Matías, cada una en su commit:
 ## Correcciones después de la devolución 2 (17/11)
 - Matías: ordené el repositorio. La versión actual está en la raíz y saqué las carpetas viejas. La versión entregada quedó guardada en la etiqueta entrega-sprint-4.
 
-#### Uso de IA
-
+## Uso de IA
 Usamos IA (ChatGPT / Claude) como ayuda en:
-
-- **Código:** juego.js y datos.js. Revisamos y probamos el código jugando, y las correcciones del 12/11 las realizamos entre todos.
+- **Código:** juego.js y datos.js. Lo revisamos y probamos jugando. Las correcciones del 12/11 las hice yo (Matías) con ayuda de Claude.
 - **CSS y diseño de la web.**
 - **Texto del PDF:** redacción y tablas.
-- **Imágenes:** con IA solo hicimos los fondos SVG del Sprint 3 (oficina, taller, depósito, etc.). Se generaron con un script de Python escrito con ayuda de IA (estaba en la carpeta "correcion sprint 3"; se puede ver en la etiqueta entrega-sprint-4 de GitHub). En el Sprint 4 no los usamos: el juego utiliza el fondo del pasillo. El fondo del pasillo y la ilustración de Nico no se hicieron con IA.
+- **Imágenes:** con IA solo se hicieron los fondos SVG del Sprint 3 (oficina, taller, depósito, etc.). Se generaron con un script de Python escrito con ayuda de IA (estaba en la carpeta "correcion sprint 3"; se puede ver en la etiqueta entrega-sprint-4 de GitHub). En el Sprint 4 no se usan: el juego usa el fondo del pasillo. El fondo del pasillo y la ilustración de Nico no se hicieron con IA.
 
-**Herramienta:** Claude (chat).  
-**Fechas:** 12/11/2026 y 17/11/2026.
+Los prompts del Sprint 4 original no los guardamos. Los de las correcciones están abajo.
 
-Estos son los pedidos que le hicimos, resumidos. Donde mandamos una captura de pantalla o un archivo lo indicamos entre corchetes.
+## Prompts de Matías (Claude, 12/11 y 17/11)
+Pedidos resumidos. Donde mandé una captura de pantalla o un archivo lo indico entre corchetes.
 
-## 12/11 – Corrección del Sprint 4 (devolución 1)
+### 12/11 – Corrección del Sprint 4 (devolución 1)
 
-**Pedido 1:** "Esto es lo que entregamos en el Sprint 4. Esta era la consigna." [adjuntamos el PDF de la entrega, el proyecto y la consigna del Sprint 4]
+**Pedido 1:** "Esto es lo que entregué en el Sprint 4. Esta era la consigna." [adjunté el PDF de la entrega, el proyecto y la consigna del Sprint 4]
 
-**Pedido 2:** "Ayudanos con la devolución que nos hicieron: decinos por dónde empezar a modificar para cumplir con lo que dice y qué cosas ya cumplimos." [pegamos la devolución 1]
-- **Qué hizo la IA:** comparó la devolución con el código del repositorio, nos dijo qué estaba cumplido y armó una lista de tareas.
+**Pedido 2:** "Ayudame con la devolución que me hicieron: decime por dónde empezar a modificar para cumplir con lo que dice y qué cosas ya cumplí." [pegué la devolución 1]
+- Qué hizo la IA: comparó la devolución con el código del repositorio, me dijo qué estaba cumplido y armó una lista de tareas.
 
-**Pedido 3:** "Decinos qué tenemos que editar, en orden y paso a paso."
-- **Qué hizo la IA:** nos dio los pasos y las líneas de código para bloquear la opción "Correr" de la Etapa 6 con menos de 30% de energía.
-- **Qué hicimos nosotros:** agregamos las líneas en juego.js (en elegir() y en renderNodo()) y el estilo en styles.css, guardamos y probamos el recorrido de la prueba 5.
+**Pedido 3:** "Decime qué tengo que editar, en orden y paso a paso."
+- Qué hizo la IA: me dio los pasos y las líneas de código para bloquear la opción "Correr" de la Etapa 6 con menos de 30% de energía.
+- Qué hice yo: agregué las líneas en juego.js (en elegir() y en renderNodo()) y el estilo en styles.css, guardé y probé el recorrido de la prueba 5.
 
-**Pedido 4:** [mandamos captura del juego en la Etapa 6] La opción A decía "Te falta energía" pero no se veía gris.
-- **Qué hizo la IA:** nos explicó que la animación "aparecer" dejaba la opacidad en 1 y que había que usar !important.
-- **Qué hicimos nosotros:** cambiamos la línea en styles.css, volvimos a probar y sacamos las capturas (docs/capturas).
+**Pedido 4:** [mandé captura del juego en la Etapa 6] La opción A decía "Te falta energía" pero no se veía gris.
+- Qué hizo la IA: me explicó que la animación "aparecer" dejaba la opacidad en 1 y que había que usar !important.
+- Qué hice yo: cambié la línea en styles.css, volví a probar y saqué las capturas (docs/capturas).
 
-**Pedido 5:** "¿Dónde ponemos la captura y cómo subimos el video que falta?"
-- **Qué hicimos nosotros:** subimos el video de la animación y las capturas, cada cosa en su commit.
+**Pedido 5:** "¿Dónde pongo la captura y cómo subo el video que falta?"
+- Qué hice yo: subí el video de la animación y las capturas, cada cosa en su commit.
 
-**Pedido 6:** "Ayudanos a escribir la parte de imágenes y prompts, y armá el documento corregido en Word."
-- **Qué hizo la IA:** redactó CONTRIBUCIONES.md y el documento corregido a partir del PDF original.
-- **Qué hicimos nosotros:** le pasamos qué partes se hicieron con IA, los apellidos del equipo y el resultado de la prueba 5 después de jugarla.
+**Pedido 6:** "Ayudame a escribir la parte de imágenes y prompts, y armame el documento corregido en Word."
+- Qué hizo la IA: redactó CONTRIBUCIONES.md y el documento corregido a partir del PDF original.
+- Qué hice yo: le pasé qué partes se hicieron con IA, los apellidos del equipo y el resultado de la prueba 5 jugándola.
 
-**Commits de ese día:** b2e69db, f21072d, 71d4d7d, 8885fe7, 9943d85, 4bd33c5.
+Commits de ese día: b2e69db, f21072d, 71d4d7d, 8885fe7, 9943d85, 4bd33c5.
 
-## 17/11 – Devolución 2
+### 17/11 – Devolución 2
 
-**Pedido 7:** "Nos hicieron una nueva devolución, necesitamos corregirla." [pegamos la devolución 2]
-- **Qué hizo la IA:** separó qué tareas le correspondían a cada integrante del equipo.
+**Pedido 7:** "Me hicieron una nueva devolución, necesito corregirlo." [pegué la devolución 2]
+- Qué hizo la IA: separó qué me tocaba a mí y qué a mis compañeros.
 
-**Pedido 8:** "¿Qué tenemos que hacer exactamente? Decinos qué hace cada uno para organizarnos mejor."
-- **Qué hizo la IA:** armó la lista de tareas de cada integrante y nos ayudó a organizarnos.
+**Pedido 8:** "¿Qué tienen que hacer exactamente mis compañeros? Dame un prompt para que hagan su parte."
+- Qué hizo la IA: armó la lista de tareas de cada compañero y los prompts para que usen Gemini como guía.
 
-**Pedido 9:** "¿Qué nos queda hacer?" [ordenar el repositorio]
-- **Qué hizo la IA:** nos dio los comandos de git para pasar la versión actual a la raíz.
-- **Qué hicimos nosotros:** pusimos la etiqueta entrega-sprint-4, movimos las carpetas con git mv, borramos la versión vieja, probamos el juego y subimos los cambios.
+**Pedido 9:** "¿Qué me queda hacer a mí?" [ordenar el repositorio]
+- Qué hizo la IA: me dio los comandos de git para pasar la versión actual a la raíz.
+- Qué hice yo: puse la etiqueta entrega-sprint-4, moví las carpetas con git mv, borré la versión vieja, probé el juego y lo subí.
