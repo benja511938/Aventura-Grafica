@@ -34,7 +34,7 @@ function elegir(indice) {
   const nodo = NODOS[estado.nodo];
   const opcion = opcionesVisibles()[indice];
   if (!opcion || estado.final) return;
-    if (opcion.necesitaEnergia && estado.energia < opcion.necesitaEnergia) return;
+  if (opcion.necesitaEnergia && estado.energia < opcion.necesitaEnergia) return;
 
   const antes = { tiempo: estado.tiempo, energia: estado.energia };
   const resultado = valor(opcion.resultado) || '';
@@ -57,6 +57,7 @@ function elegir(indice) {
   // 4. Etapa 5: usar la llave sin tenerla no abre la puerta
   if (estado.nodo === 5 && opcion.usaLlave && !estado.inventario.llave) {
     estado.fallaLlave = true;
+    sonar('puerta');
     estado.recorrido[estado.recorrido.length - 1].eleccion += ' (no abrió)';
     renderNodo('Ninguna llave entra en la cerradura. La puerta sigue cerrada: ahora tenés que forzarla o desarmarla.');
     return;
@@ -69,6 +70,8 @@ function elegir(indice) {
     return terminar(opcion.final);
   }
 
+  if (estado.tiempo <= 25 && SONIDOS.reloj.paused) sonar('reloj');
+  sonar('pasos');
   estado.nodo = opcion.next;
   renderNodo(resultado);
 }
@@ -102,6 +105,7 @@ function terminar(numero, motivo) {
     else texto = 'Nico estaba tan cansado que se desplomó. A las 6:00 el guardia lo encontró dormido en el piso.';
   }
   estado.final = { numero, texto };
+  pararSonidos();
   renderFinal();
 }
 
@@ -118,6 +122,8 @@ function empezar() {
   $('escena').classList.remove('alarma');
   $('btn-reiniciar').hidden = false;
   reproducirCinematica(() => renderNodo());
+  pararSonidos();
+  sonar('musica');
 }
 
 function renderNodo(mensaje = '') {
@@ -289,6 +295,7 @@ $('btn-otra-vez').addEventListener('click', empezar);
 $('btn-reiniciar').addEventListener('click', () => {
   estado = estadoInicial();
   $('btn-reiniciar').hidden = true;
+  pararSonidos();
   mostrarPantalla('inicio');
 });
 $('btn-ayuda').addEventListener('click', () => $('ayuda').showModal());
@@ -302,3 +309,24 @@ document.addEventListener('keydown', (ev) => {
 });
 
 mostrarPantalla('inicio');
+
+// ---------- Sonidos (Matías) ----------
+const SONIDOS = {
+  musica: new Audio('media/sonidos/musica.mp3'),
+  reloj:  new Audio('media/sonidos/reloj.mp3'),
+  pasos:  new Audio('media/sonidos/pasos.mp3'),
+  puerta: new Audio('media/sonidos/puerta.mp3'),
+};
+SONIDOS.musica.loop = true;
+SONIDOS.musica.volume = 0.35;
+SONIDOS.reloj.loop = true;
+
+function sonar(nombre) {
+  const s = SONIDOS[nombre];
+  s.currentTime = 0;
+  s.play().catch(() => {});
+}
+
+function pararSonidos() {
+  for (const s of Object.values(SONIDOS)) s.pause();
+}
