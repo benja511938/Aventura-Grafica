@@ -69,3 +69,12 @@ Commits de ese día: b2e69db, f21072d, 71d4d7d, 8885fe7, 9943d85, 4bd33c5.
 **Pedido 9:** "¿Qué me queda hacer a mí?" [ordenar el repositorio]
 - Qué hizo la IA: me dio los comandos de git para pasar la versión actual a la raíz.
 - Qué hice yo: puse la etiqueta entrega-sprint-4, moví las carpetas con git mv, borré la versión vieja, probé el juego y lo subí.
+
+## Sonidos y música (17/11) – Matías
+- Grabé con el celular y edité en Audacity los sonidos del reloj, los pasos y la puerta trabada. Los proyectos (.aup4) y las grabaciones originales están en media/sonidos/fuente.
+- Armé la música de fondo en BandLab combinando y editando loops del pack "Ambient Downtempo" (4 pistas, 100 bpm). Captura y link del proyecto en media/sonidos/fuente.
+- Integré los sonidos al juego (juego.js) y los probé jugando.
+
+**Pedido 10:** "Guiame para hacer los sonidos y la música, y dame el código para integrarlos al juego."
+- Qué hizo la IA: me guió con Audacity y BandLab y escribió el código para reproducir los sonidos en juego.js (SONIDOS, sonar() y pararSonidos()).
+- Qué hice yo: grabé y edité los 4 sonidos, armé la música, pegué el código, lo probé jugando y lo subí en commits separados.
