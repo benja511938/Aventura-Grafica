@@ -163,3 +163,11 @@ button { font: inherit; cursor: pointer; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }  
 .opcion:disabled { opacity: .45 !important; filter: grayscale(1); cursor: not-allowed; }
+/* ---------- Fondos de cada lugar (Bauti) ---------- */
+.escena[data-filtro="oficina"]  .escena-fondo { background-image: url(../media/fondos/oficinamodificada.png); filter: none; }
+.escena[data-filtro="conducto"] .escena-fondo { background-image: url(../media/fondos/conductomodificado.png); filter: none; }
+.escena[data-filtro="deposito"] .escena-fondo { background-image: url(../media/fondos/depositomodificado.png); filter: none; }
+.escena[data-filtro="frio"]     .escena-fondo { background-image: url(../media/fondos/fiambreriamodificada.png); filter: none; }
+.escena[data-filtro="taller"]   .escena-fondo { background-image: url(../media/fondos/tallermodificado.png); filter: none; }
+.escena[data-filtro="puerta"]   .escena-fondo { background-image: url(../media/fondos/puertamodificadas.png); filter: none; }
+.escena[data-filtro="exterior"] .escena-fondo { background-image: url(../media/fondos/patiomodificado.png); filter: none; }
