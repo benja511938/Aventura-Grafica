@@ -4,6 +4,7 @@
 - **Correa:** creó este repositorio y corrigió la versión del Sprint 3 (finales según la Etapa 6, destornillador, colores por zona).
 - **Álvaro:** ilustración y animación de Nico en Adobe Animate.
 - **Bauti:** revisión del mapa de nodos y textos.
+- **Matías:** estuve de intercambio durante el Sprint 3. Me sumé en el Sprint 4.
 
 ## Sprint 4 (entrega del 3/11)
 - **Matías:** separé el código en datos.js y juego.js, uso de objetos, condición de la Etapa 6, colores del Sprint 2, pruebas y el documento. Gran parte se hizo con ayuda de IA (ver abajo).
