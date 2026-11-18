@@ -78,3 +78,28 @@ Commits de ese día: b2e69db, f21072d, 71d4d7d, 8885fe7, 9943d85, 4bd33c5.
 **Pedido 10:** "Guiame para hacer los sonidos y la música, y dame el código para integrarlos al juego."
 - Qué hizo la IA: me guió con Audacity y BandLab y escribió el código para reproducir los sonidos en juego.js (SONIDOS, sonar() y pararSonidos()).
 - Qué hice yo: grabé y edité los 4 sonidos, armé la música, pegué el código, lo probé jugando y lo subí en commits separados.
+
+
+# Prompts de generación de fondos - Proyecto Aventura Gráfica
+
+## 1. Patio de carga BAUTI FER
+- **Prompt utilizado:** 
+  > "Fondo 2D para videojuego de un área de carga industrial por noche, estilo de arte de cómic de dibujos animados, sombreado de celdas, colores vibrantes, plano general amplio, una puerta de persiana metálica enrollable grande y cerrada al fondo, estantes de almacenamiento con cajas de cartón a la derecha, cajas pesadas apiladas a la izquierda, línea de seguridad láser en el suelo, iluminación ambiental cinemática con lámparas de techo industriales que proyectan conos de luz, estilo de arte vectorial limpio."
+
+## 2. Fiambrería BAUTI FER
+- **Prompt utilizado:** 
+  > "Fondo 2D para videojuego del interior de un almacén y fiambrería retro por noche, estilo de arte de cómic de dibujos animados, sombreado de celdas, refrigeradores de exhibición de vidrio con productos coloridos a la izquierda, un mostrador de fiambres con una balanza a la derecha, una puerta trasera con letrero de cámara fría, ganchos para carne colgados, luces de techo industriales con conos de luz cálida, arte vectorial limpio."
+
+## 3. Oficina / Gerencia BAUTI FER
+- **Prompt utilizado:** 
+  > "Fondo 2D para videojuego del interior de una oficina corporativa por noche, estilo de arte de cómic de dibujos animados, sombreado de celdas, un escritorio de madera con una computadora y una lámpara en el centro, una biblioteca grande llena de libros coloridos a la derecha, un archivador y un perchero a la izquierda, una ventana que muestra un cielo nocturno con estrellas, paneles de techo colgantes con iluminación cálida, gráficos vectoriales limpios."
+
+## 4. Salida de emergencia BAUTI FER
+- **Prompt utilizado:** 
+  > "Fondo 2D para videojuego de un pasillo de salida de emergencia industrial por noche, estilo de arte de cómic de dibujos animados, sombreado de celdas, una puerta de salida de seguridad de metal pesado con franjas de precaución amarillas en el centro, cajas de cartón apiladas a la izquierda, un extintor de incendios en la pared derecha, señales de advertencia, luces de techo industriales que proyectan conos de luz, arte vectorial limpio."
+
+## 5. Mantenimiento BAUTI FER
+- **Prompt utilizado:** 
+  > "Fondo 2D para videojuego de un taller de mantenimiento industrial por noche, estilo de arte de cómic de dibujos animados, sombreado de celdas, paneles perforados para herramientas en las paredes con varias herramientas, un banco de trabajo en el centro, una caja de herramientas rodante roja a la izquierda, un estante de almacenamiento con carpetas y cajas coloridas, lámparas de techo industriales con conos de luz cálida, estilo de arte vectorial limpio."
+
+  bauti: fondos generados con IA (Gemini) y modificados en Illustrator.
