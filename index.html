@@ -39,6 +39,7 @@
     <section id="escena" class="escena" aria-label="Escena actual">
       <div class="escena-fondo"></div>
       <div class="escena-tinte"></div>
+      <img id="guardia" class="guardia" src="media/personajes/guardia-nocturno.png" alt="El guardia" hidden>
       <img id="nico" class="nico" src="media/personajes/nico.svg" alt="Nico">
       <p class="escena-lugar"><span id="lugar"></span> · <span id="hora">05:12</span> AM</p>
     </section>
@@ -92,6 +93,15 @@
     </video>
     <p class="cinematica-texto">Nico sale del baño… y se apagan las luces.</p>
     <button id="btn-saltar" class="btn-chico" type="button">Saltar ⏭</button>
+  </div>
+
+  <!-- CINEMÁTICA DE LA VERJA: animación de Benja exportada de Adobe Animate -->
+  <div id="cinematica-verja" class="cinematica" hidden>
+    <video id="video-verja" preload="auto" playsinline muted>
+      <source src="media/animaciones/verja.mp4" type="video/mp4">
+    </video>
+    <p class="cinematica-texto">La verja del patio empieza a bajar…</p>
+    <button id="btn-saltar-verja" class="btn-chico" type="button">Saltar ⏭</button>
   </div>
 
   <!-- AYUDA -->

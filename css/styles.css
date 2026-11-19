@@ -171,3 +171,5 @@ button { font: inherit; cursor: pointer; }
 .escena[data-filtro="taller"]   .escena-fondo { background-image: url(../media/fondos/tallermodificado.png); filter: none; }
 .escena[data-filtro="puerta"]   .escena-fondo { background-image: url(../media/fondos/puertamodificadas.png); filter: none; }
 .escena[data-filtro="exterior"] .escena-fondo { background-image: url(../media/fondos/patiomodificado.png); filter: none; }
+.nico.desmayado { animation: none; left: 40%; height: 62%; filter: drop-shadow(0 4px 8px rgba(0,0,0,.6)) brightness(.8); }
+.guardia { position: absolute; bottom: 0; left: 12%; height: 92%; filter: drop-shadow(0 4px 8px rgba(0,0,0,.6)); animation: aparecer .6s ease-out; }

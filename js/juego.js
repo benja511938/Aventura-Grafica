@@ -73,7 +73,9 @@ function elegir(indice) {
   if (estado.tiempo <= 25 && SONIDOS.reloj.paused) sonar('reloj');
   sonar('pasos');
   estado.nodo = opcion.next;
-  renderNodo(resultado);
+  // Al llegar al patio (Etapa 6) se ve la animación de la verja bajando
+  if (estado.nodo === 6) reproducirCinematica(() => renderNodo(resultado), 'cinematica-verja', 'video-verja', 'btn-saltar-verja');
+  else renderNodo(resultado);
 }
 
 // En la Etapa 5, si ya falló la llave, solo quedan forzar o desarmar.
@@ -134,7 +136,11 @@ function renderNodo(mensaje = '') {
   escena.dataset.filtro = nodo.filtro || '';
   escena.classList.toggle('titila', !!nodo.titila);
   escena.classList.remove('perdio', 'gano');
-  $('nico').className = 'nico' + (estado.energia <= 25 ? ' cansado' : '');
+  // Con poca energía se muestra el dibujo de Nico cansado
+  const cansado = estado.energia <= 25;
+  $('nico').src = cansado ? 'media/personajes/nico-cansado.png' : 'media/personajes/nico.svg';
+  $('nico').className = 'nico' + (cansado ? ' cansado' : '');
+  $('guardia').hidden = true;
 
   $('lugar').textContent = nodo.lugar;
   $('etapa').textContent = `Etapa ${nodo.etapa} de 6`;
@@ -251,7 +257,11 @@ function renderFinal() {
   escena.classList.add(info.tipo);
   escena.dataset.fondo = info.tipo === 'gano' ? 'normal' : 'apagado';
   escena.dataset.filtro = info.tipo === 'gano' ? 'amanecer' : '';
-  $('nico').className = 'nico ' + (info.tipo === 'gano' ? 'festeja' : 'atrapado');
+  // Si perdió: aparece el guardia, y si se quedó sin energía Nico está desmayado
+  const desmayado = f.numero === 'atrapado' && estado.energia <= 0 && estado.tiempo > 0;
+  $('nico').src = desmayado ? 'media/personajes/nico-desmayado.png' : 'media/personajes/nico.svg';
+  $('nico').className = 'nico ' + (info.tipo === 'gano' ? 'festeja' : desmayado ? 'desmayado' : 'atrapado');
+  $('guardia').hidden = info.tipo === 'gano';
   $('lugar').textContent = info.tipo === 'gano' ? 'Afuera, en la calle' : 'Supermercado';
   $('etapa').textContent = 'Final';
   $('progreso-etapas').style.setProperty('--avance', 1);
@@ -268,9 +278,10 @@ function renderFinal() {
   $('btn-otra-vez').focus();
 }
 
-// ---------- Cinemática (animación exportada de Adobe Animate) ----------
-function reproducirCinematica(alTerminar) {
-  const capa = $('cinematica'), video = $('video-nico');
+// ---------- Cinemáticas (animaciones exportadas de Adobe Animate) ----------
+// Sirve para las dos: la de Nico al empezar y la de la verja en la Etapa 6.
+function reproducirCinematica(alTerminar, idCapa = 'cinematica', idVideo = 'video-nico', idSaltar = 'btn-saltar') {
+  const capa = $(idCapa), video = $(idVideo);
   let listo = false;
   const cerrar = () => {
     if (listo) return;
@@ -285,7 +296,7 @@ function reproducirCinematica(alTerminar) {
   video.currentTime = 0;
   video.onended = cerrar;
   video.onerror = cerrar;
-  $('btn-saltar').onclick = cerrar;
+  $(idSaltar).onclick = cerrar;
   video.play().catch(cerrar);
 }
 
@@ -303,7 +314,7 @@ $('btn-cerrar-ayuda').addEventListener('click', () => $('ayuda').close());
 
 // Atajos de teclado: 1, 2 y 3 eligen las opciones A, B y C
 document.addEventListener('keydown', (ev) => {
-  if ($('pantalla-juego').hidden || estado.final || !$('cinematica').hidden || $('ayuda').open) return;
+  if ($('pantalla-juego').hidden || estado.final || !$('cinematica').hidden || !$('cinematica-verja').hidden || $('ayuda').open) return;
   const n = Number(ev.key) - 1 - desfaseLetras();
   if (n >= 0 && n < opcionesVisibles().length) elegir(n);
 });
