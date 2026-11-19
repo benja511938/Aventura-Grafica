@@ -104,3 +104,6 @@ Commits de ese día: b2e69db, f21072d, 71d4d7d, 8885fe7, 9943d85, 4bd33c5.
   > "Fondo 2D para videojuego de un taller de mantenimiento industrial por noche, estilo de arte de cómic de dibujos animados, sombreado de celdas, paneles perforados para herramientas en las paredes con varias herramientas, un banco de trabajo en el centro, una caja de herramientas rodante roja a la izquierda, un estante de almacenamiento con carpetas y cajas coloridas, lámparas de techo industriales con conos de luz cálida, estilo de arte vectorial limpio."
 
   bauti: fondos generados con IA (Gemini) y modificados en Illustrator.
+
+  bauti:use ia para generar las reglas css que asignan las imagenes de fondo segun el data-filtro de cada escena
+  
